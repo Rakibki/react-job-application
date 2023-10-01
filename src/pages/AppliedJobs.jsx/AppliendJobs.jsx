@@ -4,6 +4,7 @@ import { useLoaderData } from "react-router-dom";
 import img1 from "../../assets/images/bg1.png";
 import img2 from "../../assets/images/bg2.png";
 import ApplyJob from "../../components/ApplyJob";
+import { Helmet } from "react-helmet-async";
 
 const AppliendJobs = () => {
   const jobs = useLoaderData();
@@ -66,6 +67,9 @@ const AppliendJobs = () => {
           <ApplyJob key={job.id} job={job} />
         ))}
       </div>
+      <Helmet>
+        <title>Applyde Job</title>
+      </Helmet>
     </div>
   );
 };

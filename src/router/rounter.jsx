@@ -7,6 +7,10 @@ import Blog from '../pages/blog/Blog'
 import AppliendJobs from "../pages/AppliedJobs.jsx/AppliendJobs";
 import Error from "../pages/error/Error";
 import JobDetais from "../components/JobDetais";
+import Login from "../pages/login/Login";
+import Register from "../pages/register/Register";
+import Profile from "../pages/profile/Profile";
+import PrivateRoute from "../components/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +24,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/blog',
-        element: <Blog />,
+        element: <PrivateRoute> <Blog /> </PrivateRoute>,
       },
       {
         path: "/appliedJobs",
@@ -31,6 +35,18 @@ const router = createBrowserRouter([
         path: "/job/:id",
         element: <JobDetais />,
         loader: () => fetch('../jobs.json')
+      },
+      {
+        path: "/login",
+        element: <Login /> ,
+      },
+      {
+        path: "/register",
+        element: <Register />
+      },
+      {
+        path: "/profile",
+        element: <PrivateRoute> <Profile /> </PrivateRoute>
       }
     ]
   }
